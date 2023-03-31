@@ -18,9 +18,9 @@ const io = new Server(server, {
   },
 });
 
-app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/index.html");
-});
+// app.get("/", (req, res) => {
+//   res.sendFile(__dirname + "/index.html");
+// });
 
 let onlineUsers = [];
 
@@ -216,3 +216,6 @@ io.on("connection", (socket) => {
 server.listen(process.env.PORT, () => {
   console.log(`Listening on port ${process.env.PORT}`);
 });
+
+// Export the Express API
+module.exports = app;
