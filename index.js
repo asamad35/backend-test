@@ -13,7 +13,8 @@ const io = new Server(server, {
     origin:
       process.env.PROD === "false"
         ? "http://localhost:5173"
-        : "https://socio-plus.netlify.app",
+        : "http://localhost:5173",
+    // : "https://socio-plus.netlify.app",
     methods: ["GET", "POST"],
   },
 });
