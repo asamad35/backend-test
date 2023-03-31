@@ -2,10 +2,8 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const morgan = require("morgan");
-// const fileUpload = require("express-fileupload");
 const cors = require("cors");
 const cloudinary = require("cloudinary").v2;
-
 
 // middlewares
 app.use(express.json());
@@ -19,12 +17,6 @@ app.use(
     credentials: true,
   })
 );
-// app.use(
-//   fileUpload({
-//     useTempFiles: true,
-//     tempFileDir: "/tmp/",
-//   })
-// );
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -42,6 +34,9 @@ const chatRoute = require("./routes/chatRoute");
 const messageRoute = require("./routes/messageRoute");
 
 // route middleware
+app.get("/api/v1/test", (req, res) => {
+  res.send("Express on Vercel");
+});
 app.use("/api/v1", signupRoute);
 app.use("/api/v1", editProfileRoute);
 app.use("/api/v1/chat", chatRoute);
