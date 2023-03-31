@@ -23,6 +23,11 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
 
+app.get("/socket.io/socket.io.js", (req, res) => {
+  res.sendFile(__dirname + "/node_modules/socket.io/client-dist/socket.io.js");
+});
+///
+
 let onlineUsers = [];
 
 io.on("connection", (socket) => {
